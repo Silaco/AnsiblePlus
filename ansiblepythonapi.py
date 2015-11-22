@@ -48,8 +48,15 @@ from ansible import errors
 from ansible import callbacks
 from ansible import utils
 from ansible.color import ANSIBLE_COLOR, stringc
-from ansible.callbacks import display
+# from ansible.callbacks import display
 
+outstring=''
+
+def display(str,log_only,color,stderr):
+	global outstring
+	outstring+=str
+	
+	
 def colorize(lead, num, color):
     """ Print 'lead' = 'num' in 'color' """
     if num != 0 and ANSIBLE_COLOR and color is not None:
