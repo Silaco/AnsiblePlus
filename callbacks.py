@@ -238,7 +238,7 @@ class AggregateStats(object):
             self._increment('dark', host)
 
     def output(self):
-	return self.results2
+		return self.results2
     def summarize(self, host):
         ''' return information about a particular host '''
 

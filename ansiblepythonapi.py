@@ -289,8 +289,8 @@ def main(args):
                 if filename:
                     display("           to retry, use: --limit @%s\n" % filename)
 
-	    for msg in pb.stats.output():
-		print msg
+			for msg in pb.stats.output():
+				print msg
             for h in hosts:
                 t = pb.stats.summarize(h)
 		
