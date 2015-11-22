@@ -260,7 +260,7 @@ def main(args):
             continue
 
         if options.syntax:
-            # if we've not exited by now then we are fine.
+            # if we've not exited by now then we are fine..
             print 'Playbook Syntax is fine'
             return 0
 
