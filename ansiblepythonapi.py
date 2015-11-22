@@ -53,11 +53,11 @@ from ansible.color import ANSIBLE_COLOR, stringc
 outstring=''
 
 def display(msg, color=None, stderr=False, screen_only=False, log_only=False, runner=None):
-	global outstring
-	outstring+=msg
+    global outstring
+    outstring+=msg
 
-	
-	
+    
+    
 def colorize(lead, num, color):
     """ Print 'lead' = 'num' in 'color' """
     if num != 0 and ANSIBLE_COLOR and color is not None:
@@ -289,11 +289,11 @@ def main(args):
                 if filename:
                     display("           to retry, use: --limit @%s\n" % filename)
 
-			for msg in pb.stats.output():				
-				print msg
+            for msg in pb.stats.output():               
+                print msg
             for h in hosts:
                 t = pb.stats.summarize(h)
-		
+        
                 display("%s : %s %s %s %s" % (
                     hostcolor(h, t),
                     colorize('ok', t['ok'], 'green'),
