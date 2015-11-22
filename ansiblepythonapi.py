@@ -293,11 +293,17 @@ def main(args):
                 for (host, value) in runner_results.get('dark', {}).iteritems():
                     print 'dark' 
                     print host
-                    print value
+                    # print value
+                    jsObj=json.loads(value)
+                    print jsObj['msg']
+                    print jsObj['failed']
                 for (host, value) in runner_results.get('contacted', {}).iteritems():
                     print 'contacted' 
                     print host
                     print value
+                    jsObj=json.loads(value)
+                    print jsObj['msg']
+                    print jsObj['failed']
                 # for msg in pb.stats.output():               
                 # print msg
             for h in hosts:
