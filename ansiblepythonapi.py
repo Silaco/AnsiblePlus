@@ -52,7 +52,7 @@ from ansible.color import ANSIBLE_COLOR, stringc
 
 outstring=''
 
-def display(str,log_only,color,stderr):
+def display(msg, color=None, stderr=False, screen_only=False, log_only=False, runner=None):
 	global outstring
 	outstring+=str
 	
