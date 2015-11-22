@@ -145,14 +145,15 @@ def display(msg, color=None, stderr=False, screen_only=False, log_only=False, ru
     if not log_only:
         if not stderr:
             try:
-                print msg2
+                # print msg2
+				print ''
             except UnicodeEncodeError:
-                print msg2.encode('utf-8')
+                print '' # print msg2.encode('utf-8')
         else:
             try:
-                print >>sys.stderr, msg2
+                print '' # print >>sys.stderr, msg2
             except UnicodeEncodeError:
-                print >>sys.stderr, msg2.encode('utf-8')
+                print '' # print >>sys.stderr, msg2.encode('utf-8')
     if constants.DEFAULT_LOG_PATH != '':
         while msg.startswith("\n"):
             msg = msg.replace("\n","")
@@ -216,7 +217,7 @@ class AggregateStats(object):
 
     def compute(self, runner_results, setup=False, poll=False, ignore_errors=False):
         ''' walk through all results and increment stats '''
-
+		print runner_results
         for (host, value) in runner_results.get('contacted', {}).iteritems():
             if not ignore_errors and (('failed' in value and bool(value['failed'])) or
                 ('failed_when_result' in value and [value['failed_when_result']] or ['rc' in value and value['rc'] != 0])[0]):
