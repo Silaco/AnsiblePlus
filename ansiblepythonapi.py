@@ -289,17 +289,17 @@ def main(args):
                 if filename:
                     display("           to retry, use: --limit @%s\n" % filename)
             
-            runner_results=pb.stats.output()
-            for (host, value) in runner_results.get('dark', {}).iteritems():
-                print 'dark' 
-                print host
-                print value
-            for (host, value) in runner_results.get('contacted', {}).iteritems():
-                print 'contacted' 
-                print host
-                print value
-            for msg in pb.stats.output():               
-                print msg
+            for runner_results in pb.stats.output():              
+                for (host, value) in runner_results.get('dark', {}).iteritems():
+                    print 'dark' 
+                    print host
+                    print value
+                for (host, value) in runner_results.get('contacted', {}).iteritems():
+                    print 'contacted' 
+                    print host
+                    print value
+                # for msg in pb.stats.output():               
+                # print msg
             for h in hosts:
                 t = pb.stats.summarize(h)
         
