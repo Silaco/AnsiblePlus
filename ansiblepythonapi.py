@@ -288,7 +288,8 @@ def main(args):
                 filename = pb.generate_retry_inventory(retries)
                 if filename:
                     display("           to retry, use: --limit @%s\n" % filename)
-
+            
+            runner_results=pb.stats.output()
             for (host, value) in runner_results.get('dark', {}).iteritems():
                 print 'dark' 
                 print host
