@@ -57,6 +57,7 @@ def display(msg, color=None, stderr=False, screen_only=False, log_only=False, ru
 	outstring+=msg
 	
 	
+	
 def colorize(lead, num, color):
     """ Print 'lead' = 'num' in 'color' """
     if num != 0 and ANSIBLE_COLOR and color is not None:
@@ -328,6 +329,7 @@ if __name__ == "__main__":
     display(" ".join(sys.argv), log_only=True)
     display(" ", log_only=True)
     try:
+		print outstring
         sys.exit(main(sys.argv[1:]))
     except errors.AnsibleError, e:
         display(u"ERROR: %s" % utils.unicode.to_unicode(e, nonstring='simplerepr'), color='red', stderr=True)
