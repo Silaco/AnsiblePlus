@@ -291,7 +291,7 @@ def main(args):
 
             for h in hosts:
                 t = pb.stats.summarize(h)
-
+				print t['result2']
                 display("%s : %s %s %s %s" % (
                     hostcolor(h, t),
                     colorize('ok', t['ok'], 'green'),

@@ -146,14 +146,14 @@ def display(msg, color=None, stderr=False, screen_only=False, log_only=False, ru
         if not stderr:
             try:
                 # print msg2
-				print ''
+				pass
             except UnicodeEncodeError:
-                print '' # print msg2.encode('utf-8')
+                pass # print '' # print msg2.encode('utf-8')
         else:
             try:
-                print '' # print >>sys.stderr, msg2
+                pass #print '' # print >>sys.stderr, msg2
             except UnicodeEncodeError:
-                print '' # print >>sys.stderr, msg2.encode('utf-8')
+                pass #print '' # print >>sys.stderr, msg2.encode('utf-8')
     if constants.DEFAULT_LOG_PATH != '':
         while msg.startswith("\n"):
             msg = msg.replace("\n","")
@@ -246,7 +246,8 @@ class AggregateStats(object):
             failures    = self.failures.get(host, 0),
             unreachable = self.dark.get(host,0),
             changed     = self.changed.get(host, 0),
-            skipped     = self.skipped.get(host, 0)
+            skipped     = self.skipped.get(host, 0),
+			results2	= self.results2
         )
 
 ########################################################################
