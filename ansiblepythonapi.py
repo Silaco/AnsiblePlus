@@ -54,7 +54,7 @@ outstring=''
 
 def display(msg, color=None, stderr=False, screen_only=False, log_only=False, runner=None):
 	global outstring
-	outstring+=str
+	outstring+=msg
 	
 	
 def colorize(lead, num, color):
