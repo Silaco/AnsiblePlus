@@ -32,6 +32,7 @@ except Exception:
 import sys
 import os
 import stat
+import json
 
 # Augment PYTHONPATH to find Python modules relative to this file path
 # This is so that we can find the modules when running from a local checkout
