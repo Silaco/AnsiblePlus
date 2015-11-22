@@ -219,7 +219,7 @@ class AggregateStats(object):
     def compute(self, runner_results, setup=False, poll=False, ignore_errors=False):
 		''' walk through all results and increment stats ''' # testt
 		print runner_results
-		self.results2=str(runner_results)
+		self.results2+=str(runner_results)
         for (host, value) in runner_results.get('contacted', {}).iteritems():
             if not ignore_errors and (('failed' in value and bool(value['failed'])) or
                 ('failed_when_result' in value and [value['failed_when_result']] or ['rc' in value and value['rc'] != 0])[0]):
@@ -237,7 +237,8 @@ class AggregateStats(object):
         for (host, value) in runner_results.get('dark', {}).iteritems():
             self._increment('dark', host)
 
-
+	def output(self):
+		return self.results2
     def summarize(self, host):
         ''' return information about a particular host '''
 
@@ -246,8 +247,8 @@ class AggregateStats(object):
             failures    = self.failures.get(host, 0),
             unreachable = self.dark.get(host,0),
             changed     = self.changed.get(host, 0),
-            skipped     = self.skipped.get(host, 0),
-			results2	= self.results2
+            skipped     = self.skipped.get(host, 0)
+			# results2	= self.results2
         )
 
 ########################################################################
