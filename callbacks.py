@@ -207,7 +207,7 @@ class AggregateStats(object):
 		self.dark        = {}
 		self.changed     = {}
 		self.skipped     = {}		
-		self.results2	 = {}
+		self.results2	 = ''
 
     def _increment(self, what, host):
         ''' helper function to bump a statistic '''
@@ -217,8 +217,9 @@ class AggregateStats(object):
         getattr(self, what)[host] = prev+1
 
     def compute(self, runner_results, setup=False, poll=False, ignore_errors=False):
-        ''' walk through all results and increment stats '''
+		''' walk through all results and increment stats '''
 		print runner_results
+		self.results2=str(runner_results)
         for (host, value) in runner_results.get('contacted', {}).iteritems():
             if not ignore_errors and (('failed' in value and bool(value['failed'])) or
                 ('failed_when_result' in value and [value['failed_when_result']] or ['rc' in value and value['rc'] != 0])[0]):
