@@ -201,12 +201,12 @@ class AggregateStats(object):
 
     def __init__(self):
 
-        self.processed   = {}
-        self.failures    = {}
-        self.ok          = {}
-        self.dark        = {}
-        self.changed     = {}
-        self.skipped     = {}
+		self.processed   = {}
+		self.failures    = {}
+		self.ok          = {}
+		self.dark        = {}
+		self.changed     = {}
+		self.skipped     = {}		
 		self.results2	 = {}
 
     def _increment(self, what, host):
