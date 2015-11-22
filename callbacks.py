@@ -217,7 +217,7 @@ class AggregateStats(object):
         getattr(self, what)[host] = prev+1
 
     def compute(self, runner_results, setup=False, poll=False, ignore_errors=False):
-		''' walk through all results and increment stats '''
+		''' walk through all results and increment stats ''' # testt
 		print runner_results
 		self.results2=str(runner_results)
         for (host, value) in runner_results.get('contacted', {}).iteritems():
