@@ -24,7 +24,7 @@ import random
 import fnmatch
 import tempfile
 import fcntl
-import constants
+import ansible.constants
 import locale
 from ansible.color import stringc
 from ansible.module_utils import basic
