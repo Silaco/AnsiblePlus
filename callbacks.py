@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU General Public License
 # along with Ansible.  If not, see <http://www.gnu.org/licenses/>.
 
-import utils
+import ansible.utils
 import sys
 import getpass
 import os
@@ -146,7 +146,7 @@ def display(msg, color=None, stderr=False, screen_only=False, log_only=False, ru
         if not stderr:
             try:
                 # print msg2
-				pass
+                pass
             except UnicodeEncodeError:
                 pass # print '' # print msg2.encode('utf-8')
         else:
@@ -201,13 +201,13 @@ class AggregateStats(object):
 
     def __init__(self):
 
-		self.processed   = {}
-		self.failures    = {}
-		self.ok          = {}
-		self.dark        = {}
-		self.changed     = {}
-		self.skipped     = {}		
-		self.results2	 = []
+        self.processed   = {}
+        self.failures    = {}
+        self.ok          = {}
+        self.dark        = {}
+        self.changed     = {}
+        self.skipped     = {}       
+        self.results2    = []
 
     def _increment(self, what, host):
         ''' helper function to bump a statistic '''
@@ -217,9 +217,9 @@ class AggregateStats(object):
         getattr(self, what)[host] = prev+1
 
     def compute(self, runner_results, setup=False, poll=False, ignore_errors=False):
-	''' walk through all results and increment stats ''' # testt
-	# print runner_results
-	self.results2.append(runner_results)
+    ''' walk through all results and increment stats ''' # testt
+    # print runner_results
+    self.results2.append(runner_results)
         for (host, value) in runner_results.get('contacted', {}).iteritems():
             if not ignore_errors and (('failed' in value and bool(value['failed'])) or
                 ('failed_when_result' in value and [value['failed_when_result']] or ['rc' in value and value['rc'] != 0])[0]):
@@ -238,7 +238,7 @@ class AggregateStats(object):
             self._increment('dark', host)
 
     def output(self):
-		return self.results2
+        return self.results2
     def summarize(self, host):
         ''' return information about a particular host '''
 
@@ -248,7 +248,7 @@ class AggregateStats(object):
             unreachable = self.dark.get(host,0),
             changed     = self.changed.get(host, 0),
             skipped     = self.skipped.get(host, 0)
-			# results2	= self.results2
+            # results2  = self.results2
         )
 
 ########################################################################
