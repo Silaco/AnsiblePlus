@@ -15,7 +15,7 @@
 # You should have received a copy of the GNU General Public License
 # along with Ansible.  If not, see <http://www.gnu.org/licenses/>.
 
-import ansible.utils
+import ansible.utils  import utils
 import sys
 import getpass
 import os
@@ -24,7 +24,7 @@ import random
 import fnmatch
 import tempfile
 import fcntl
-import ansible.constants
+import ansible.constants import constants
 import locale
 from ansible.color import stringc
 from ansible.module_utils import basic
