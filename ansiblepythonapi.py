@@ -46,7 +46,7 @@ import ansible.playbook
 import ansible.constants as C
 import ansible.utils.template
 from ansible import errors
-from ansible import callbacks
+import callbacks
 from ansible import utils
 from ansible.color import ANSIBLE_COLOR, stringc
 # from ansible.callbacks import display
@@ -295,16 +295,16 @@ def main(args):
                     print 'dark' 
                     print host
                     # print value
-                    jsObj=json.loads(value)
-                    print jsObj['msg']
-                    print jsObj['failed']
+                    # jsObj=json.loads(value)
+                    # print jsObj['msg']
+                    # print jsObj['failed']
                 for (host, value) in runner_results.get('contacted', {}).iteritems():
                     print 'contacted' 
                     print host
                     print value
-                    jsObj=json.loads(value)
-                    print jsObj['msg']
-                    print jsObj['failed']
+                    # jsObj=json.loads(value)
+                    # print jsObj['msg']
+                    # print jsObj['failed']
                 # for msg in pb.stats.output():               
                 # print msg
             for h in hosts:
