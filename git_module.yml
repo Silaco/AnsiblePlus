@@ -1,0 +1,6 @@
+---
+- hosts: localhost
+  gather_facts: no
+  tasks:
+  - name: synching git repo
+    git: repo=https://github.com/Silaco/AnsiblePlus.git dest=/tmp/AnsiblePlus force='yes'
